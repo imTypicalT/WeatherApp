@@ -7,6 +7,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "@react-native-community",
+    "prettier",
   ],
 
   overrides: [],
@@ -14,12 +15,10 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  babelOptions: { configFile: "./.babelrc" },
 
   plugins: ["react"],
   rules: {
-    semi: ["error", "never"],
-    "comma-dangle": [2, "never"],
+    "requireConfigFile": false,
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
     "no-use-before-define": [
       "error",
