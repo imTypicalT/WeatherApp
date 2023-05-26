@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import CurrentWeather from './src/components/CurrentWeather';
-import UpcomingWeather from './src/components/UpcomingWeather';
+import CurrentWeather from './src/screens/CurrentWeather';
+import UpcomingWeather from './src/screens/UpcomingWeather';
 
-// Continue Tutorial https://youtu.be/obH0Po_RdWk?t=3126
+// Continue Tutorial https://youtu.be/obH0Po_RdWk?t=5186
 
 const App = () => {
   return (
