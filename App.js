@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import CurrentWeather from './src/screens/CurrentWeather';
 import UpcomingWeather from './src/screens/UpcomingWeather';
 
-// Continue Tutorial https://youtu.be/obH0Po_RdWk?t=5186
+// Continue Tutorial https://youtu.be/obH0Po_RdWk?t=6173
 
 const App = () => {
   return (
