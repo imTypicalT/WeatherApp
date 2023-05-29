@@ -1,11 +1,11 @@
-import React from 'react';
-import CurrentWeather from '../screens/CurrentWeather';
-import UpcomingWeather from '../screens/UpcomingWeather';
-import City from '../screens/City';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Feather } from '@expo/vector-icons';
+import React from 'react'
+import CurrentWeather from '../screens/CurrentWeather'
+import UpcomingWeather from '../screens/UpcomingWeather'
+import City from '../screens/City'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { Feather } from '@expo/vector-icons'
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator()
 
 const Tabs = () => {
   return (
@@ -13,6 +13,17 @@ const Tabs = () => {
       screenOptions={{
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'grey',
+        tabBarStyle: {
+          backgroundColor: 'lightblue',
+        },
+        headerStyle: {
+          backgroundColor: 'lightblue',
+        },
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          fontSize: 25,
+          color: 'tomato',
+        },
       }}>
       <Tab.Screen
         name={'Current'}
@@ -54,7 +65,7 @@ const Tabs = () => {
         }}
       />
     </Tab.Navigator>
-  );
-};
+  )
+}
 
-export default Tabs;
+export default Tabs

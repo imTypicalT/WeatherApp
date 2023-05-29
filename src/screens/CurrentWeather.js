@@ -1,7 +1,8 @@
-import React from 'react';
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
-import { Feather } from '@expo/vector-icons';
-import RowText from '../components/RowText';
+import React from 'react'
+import { View, Text, SafeAreaView, StyleSheet } from 'react-native'
+import { Feather } from '@expo/vector-icons'
+import RowText from '../components/RowText'
+import { weatherType } from '../utilities/weatherType'
 
 const CurrentWeather = () => {
   const {
@@ -14,7 +15,7 @@ const CurrentWeather = () => {
     bodyWrapper,
     description,
     message,
-  } = styles;
+  } = styles
   return (
     <SafeAreaView style={wrapper}>
       <View style={container}>
@@ -34,15 +35,15 @@ const CurrentWeather = () => {
         {/* Description */}
         <RowText
           messageOne={"It's sunny"}
-          messageTwo={"It's perfect t-shirt weather"}
+          messageTwo={weatherType['Clear'].message}
           containerStyles={bodyWrapper}
           messageOneStyles={description}
           messageTwoStyles={message}
         />
       </View>
     </SafeAreaView>
-  );
-};
+  )
+}
 
 // Styles
 const styles = StyleSheet.create({
@@ -82,5 +83,5 @@ const styles = StyleSheet.create({
   message: {
     fontSize: 30,
   },
-});
-export default CurrentWeather;
+})
+export default CurrentWeather

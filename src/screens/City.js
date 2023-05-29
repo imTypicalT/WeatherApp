@@ -7,7 +7,6 @@ import {
   StatusBar,
   View,
 } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import IconText from '../components/IconText';
 
 const City = () => {
