@@ -1,7 +1,7 @@
 import React from 'react';
-import CurrentWeather from './src/screens/CurrentWeather';
-import UpcomingWeather from './src/screens/UpcomingWeather';
-import City from './src/screens/City';
+import CurrentWeather from '../screens/CurrentWeather';
+import UpcomingWeather from '../screens/UpcomingWeather';
+import City from '../screens/City';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
 
@@ -46,7 +46,7 @@ const Tabs = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
-              name={'home'}
+              name={'map'}
               size={25}
               color={focused ? 'tomato' : 'black'}
             />
