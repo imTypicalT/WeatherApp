@@ -4,24 +4,24 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "@react-native-community",
-    "prettier",
+    'eslint:recommended',
+    'plugin:react/recommended',
+    '@react-native-community',
+    'prettier',
   ],
 
   overrides: [],
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
 
-  plugins: ["react"],
+  plugins: ['react'],
   rules: {
-    "requireConfigFile": false,
-    "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
-    "no-use-before-define": [
-      "error",
+    requireConfigFile: false,
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'no-use-before-define': [
+      'error',
       { functions: true, classes: true, variables: false },
     ],
   },
