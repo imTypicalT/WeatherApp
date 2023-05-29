@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import CurrentWeather from './src/screens/CurrentWeather';
 import UpcomingWeather from './src/screens/UpcomingWeather';
-import City from './src/screens/Cities';
+import City from './src/screens/City';
 
 // Continue Tutorial https://youtu.be/obH0Po_RdWk?t=6173
 
