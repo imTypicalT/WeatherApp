@@ -4,11 +4,11 @@ import { Feather } from '@expo/vector-icons'
 import RowText from '../components/RowText'
 import { weatherType } from '../utilities/weatherType'
 
-const CurrentWeather = () => {
+const CurrentWeather = ({ weatherData }) => {
   const {
     wrapper,
     container,
-    temp,
+    tempStyles,
     feels,
     highLowWrapper,
     highLow,
@@ -16,26 +16,43 @@ const CurrentWeather = () => {
     description,
     message,
   } = styles
+
+  const {
+    main: { temp, feels_like, temp_max, temp_min },
+    weather,
+  } = weatherData
+
+  const weatherCondition = weather[0]?.main
+
   return (
-    <SafeAreaView style={wrapper}>
+    <SafeAreaView
+      style={[
+        wrapper,
+        { backgroundColor: weatherType[weatherCondition]?.backgroundColor },
+      ]}
+    >
       <View style={container}>
-        <Feather name="sun" size={100} color="black" />
+        <Feather
+          name={weatherType[weatherCondition]?.icon}
+          size={100}
+          color="white"
+        />
         {/* Temperature */}
-        <Text style={temp}>73F</Text>
+        <Text style={tempStyles}>{`${Math.round(temp)}°`}</Text>
         {/* Feels Like */}
-        <Text style={feels}>Feels Like: 76F</Text>
+        <Text style={feels}>{`Feels Like: ${Math.round(feels_like)}°`}</Text>
         {/* High & Low */}
         <RowText
-          messageOne={'High: 78F'}
-          messageTwo={'Low: 59F'}
+          messageOne={`High: ${Math.round(temp_max)}°   `}
+          messageTwo={`Low: ${Math.round(temp_min)}°`}
           containerStyles={highLowWrapper}
           messageOneStyles={highLow}
           messageTwoStyles={highLow}
         />
         {/* Description */}
         <RowText
-          messageOne={"It's sunny"}
-          messageTwo={weatherType['Clear'].message}
+          messageOne={weather[0]?.description}
+          messageTwo={weatherType[weatherCondition]?.message}
           containerStyles={bodyWrapper}
           messageOneStyles={description}
           messageTwoStyles={message}
@@ -49,14 +66,13 @@ const CurrentWeather = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: 'pink',
   },
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  temp: {
+  tempStyles: {
     color: 'black',
     fontSize: 48,
   },
@@ -78,10 +94,10 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   description: {
-    fontSize: 48,
+    fontSize: 43,
   },
   message: {
-    fontSize: 30,
+    fontSize: 25,
   },
 })
 export default CurrentWeather

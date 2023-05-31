@@ -1,18 +1,37 @@
 import React from 'react'
+import { View, ActivityIndicator, StyleSheet } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Tabs from './src/components/Tabs'
-
-// Continue Tutorial https://youtu.be/obH0Po_RdWk?t=6173
-
-const Tab = createBottomTabNavigator()
+import { useGetWeather } from './src/hooks/useGetWeather'
+import ErrorItem from './src/components/ErrorItem'
 
 const App = () => {
+  const [loading, error, weather] = useGetWeather()
+  // console.log(`LOADING: ${loading}, ERROR: ${error}, WEATHER: ${weather}`)
+
+  if (weather && weather.list) {
+    return (
+      <NavigationContainer>
+        <Tabs weather={weather} />
+      </NavigationContainer>
+    )
+  }
   return (
-    <NavigationContainer>
-      <Tabs />
-    </NavigationContainer>
+    <View style={styles.container}>
+      {error ? (
+        <ErrorItem />
+      ) : (
+        <ActivityIndicator size={'large'} color={'blue'} />
+      )}
+    </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    flex: 1,
+  },
+})
 
 export default App
